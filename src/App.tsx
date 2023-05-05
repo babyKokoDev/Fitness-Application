@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import React from 'react'
 
 
 function App() {
   return (
     <>
-      <div className='app'>app</div>
+      <div className='bg-orange-500'>app</div>
     </>
   )
 }
