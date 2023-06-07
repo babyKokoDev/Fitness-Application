@@ -8,7 +8,7 @@ import SponsorRedBull from '@/assets/SponsorRedBull.png'
 import SponsorForbes from '@/assets/SponsorForbes.png'
 import SponsorFortune from '@/assets/SponsorFortune.png'
 import AnchorLink from 'react-anchor-link-smooth-scroll'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 interface Props {
    setSelectedPage : (value : SelectedPage) => void 
@@ -23,10 +23,12 @@ const Home = ({setSelectedPage}: Props) => {
               {/* MAIN HEADER */}
               <div className='z-10 mt-32 md:basis-3/5'>
                  {/* HEADINGS */}
+                 <AnimatePresence>
                  <motion.div className='md:-mt-20' initial = "hidden" whileInView="visible" viewport={{once : true, amount : 0.5}} transition={{duration : 0.5}} variants={{
                     hidden : {opacity : 0, x:-100},
                     visible : {opacity : 1, x: 0},
                  }}>
+                  
                      <div className='relative'>
                         <div className='before:absolute before:-top-20 md:before:content-evolvetext before:-left-20 before:z-[-1]'>
                             <img src={HomePageText} alt="home-page-text" />
@@ -35,7 +37,8 @@ const Home = ({setSelectedPage}: Props) => {
                      <p className='mt-8 text-sm'>
                         Unrivaled Gym. Unparalleled Training Fitness Classes. Studies to get the Body Shapes That you Dream of... Get Your Dream Body Now.
                      </p>
-                 </div>
+                 </motion.div>
+                 </AnimatePresence>
                  {/* ACTIONS */}
                  <div className='mt-8 flex items-center gap-8'>
                     <ActionButton setSelectedPage={setSelectedPage}>
