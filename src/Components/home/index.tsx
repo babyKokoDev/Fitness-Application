@@ -19,7 +19,8 @@ const Home = ({setSelectedPage}: Props) => {
     return (
         <section id='home' className='gap-16 bg-gray-20 py-10 md:h-full md:pb-0'>
            {/* IMAGE AND MAIN HEADER */}
-           <div className='md:flex md:mt-12 mx-auto w-5/6 items-center justify-items-center md:h-5/6'>
+           <motion.div className='md:flex md:mt-12 mx-auto w-5/6 items-center justify-items-center md:h-5/6' 
+           onViewportEnter={()=>setSelectedPage(SelectedPage.Home)}>
               {/* MAIN HEADER */}
               <div className='z-10 mt-32 md:basis-3/5'>
                  {/* HEADINGS */}
@@ -40,20 +41,25 @@ const Home = ({setSelectedPage}: Props) => {
                  </motion.div>
                  </AnimatePresence>
                  {/* ACTIONS */}
-                 <div className='mt-8 flex items-center gap-8'>
+                 <AnimatePresence>
+                 <motion.div className='mt-8 flex items-center gap-8' initial = "hidden" whileInView="visible" viewport={{once : true, amount : 0.5}} transition={{delay : 0.3, duration : 0.5}} variants={{
+                    hidden : {opacity : 0, x:-100},
+                    visible : {opacity : 1, x: 0},
+                 }}>
                     <ActionButton setSelectedPage={setSelectedPage}>
                         Join Now
                     </ActionButton>
                     <AnchorLink className='text-sm font-bold text-primary-500 underline hover:text-secondary-500' onClick={()=>setSelectedPage(SelectedPage.ContactUs)} href={`#${SelectedPage.ContactUs}`}>
                        <p>Learn More</p>
                     </AnchorLink>
-                 </div>
+                 </motion.div>
+                 </AnimatePresence>
               </div>
               {/* IMAGE */}
               <div className='flex basis-3/5 justify-center md:z-10 md:ml-40 md:mt-16 md:justify-items-end'>
                    <img src={HomePageGraphic} alt="home-pageGraphic" />
               </div>
-           </div>
+           </motion.div>
            {/* SPONSORS */}
            {isAboveMediumScreen && (
             <div className='h-[150px] w-full bg-primary-100 py-10'>
