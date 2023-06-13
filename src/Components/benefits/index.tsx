@@ -50,7 +50,7 @@ const Benefits = ({setSelectedPage}: Props) => {
             <motion.div className='md:flex items-center justify-between gap-8 mt-5'
               initial = 'hidden'
               whileInView='visible'
-              viewport={{once : true, amount : 0.5}}
+              viewport={{once : true, amount : 0.6}}
               variants={container}
               >
                 {
