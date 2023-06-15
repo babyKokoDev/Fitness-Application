@@ -19,7 +19,7 @@ const benefits : Array<BenefitType> = [
     {
         icon : <AcademicCapIcon className='h-6 w-6' />,
         title : "Expert and Pro Trainers",
-        description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos molestiae quia repellat rem sint gusto."
+        description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos molestiae quia repellat rem manhattan gusto."
     }
 ]
 
